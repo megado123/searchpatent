@@ -1,19 +1,22 @@
 # [Search Patent](http://searchpatent.azurewebsites.net)
 The [Search Patent](http://searchpatent.azurewebsites.net) application is intented to provide search functionality against the patent database hosted in Azure and made accessible through Azure Search with a Python Flask Front End with d3 extensions
 
-*Good news* This install is not required
+**Good news** This install is not required
 
-*More details than required* Here are the instructions to install this on your computer locally.
+*More details than required* 
+Here are the instructions to install this on your computer locally.  This code has been run in both python 3.4.4 and python 3.6.1 environments
+
 **Steps**
+
 1.  Clone Repository
 
  `$ git clone https://github.com/megado123/searchpatent.git`
 
  2.  Install requirements.
 
- `> C:\Python35\python.exe -m pip install wheel`
+ `> C:\Python34\python.exe -m pip install wheel`
 
-`> C:\Python35\python.exee -m pip install --upgrade -r requirements.txt`
+`> C:\Python34\python.exee -m pip install --upgrade -r requirements.txt`
 
 3.  Manually run the **setup.py** file to download the nltk stopwords 
 
@@ -22,6 +25,7 @@ Running the **runserver.py** file with the argument: 'dropdb' to drop the databa
 Running the **runserver.py** file with the argument: 'initdb' to create the database
 
 ###Additional files
+
 The project can be fun in whatever IDE is desired, but the Visual Studio Files have been included in the repository
 Additional files for deployment into Azure have also been included as part of this repository
 1.  web.config
@@ -29,6 +33,9 @@ Additional files for deployment into Azure have also been included as part of th
 3.  ptvs_virtualenv_proxy.py
 4. .skipPythonDeployment (skip the standard deployment)
 5. web.config (empty) file in the static folder
+6. patentsearch.sln (for viewing with Visual Studio)
+7. patentsearch.pyproj.user (for viewing with Visual Studio)
+8. patentsearch.pyproj (for viewing with Visual Studio)
 
 
 ## Acknowledgements
