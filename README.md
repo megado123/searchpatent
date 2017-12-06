@@ -1,4 +1,4 @@
-# [Search Patent](searchpatent.azurewebsites.net)
+# [Search Patent](http://searchpatent.azurewebsites.net)
 This application is intented to provide search functionality against the patent database hosted in Azure and made accessible through Azure Search with a Python Flask Front End with d3 extensions
 
 *Good news* This install is not required
@@ -33,7 +33,7 @@ Additional files for deployment into Azure have also been included as part of th
 
 ## Acknowledgements
 * The HTML5 Templates used for this application initially came from [Initializr](http://www.initializr.com/)
-* There is a great series on [PluralSlight](www.pluralsight.com) called 'Introduction to the Flask Microframework' that was served as a foundation
+* There is a great series on [PluralSlight](http://www.pluralsight.com) called 'Introduction to the Flask Microframework' that was served as a foundation
 for building out the front end using Python, Flask, and Jinja2 Templates
 
 ## Current Deployment
