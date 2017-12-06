@@ -7,7 +7,7 @@ This application is intented to provide search functionality against the patent 
 **Steps**
 1.  Clone Repository
 
- '$ git clone https://github.com/schacon/ticgit'
+ '$ git clone https://github.com/megado123/searchpatent.git'
 
  2.  Install requirements.
 
