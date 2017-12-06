@@ -24,7 +24,7 @@ Here are the instructions to install this on your computer locally.  This code h
 Running the **runserver.py** file with the argument: 'dropdb' to drop the database
 Running the **runserver.py** file with the argument: 'initdb' to create the database
 
-###Additional files
+### Additional files
 
 The project can be fun in whatever IDE is desired, but the Visual Studio Files have been included in the repository
 Additional files for deployment into Azure have also been included as part of this repository
