@@ -7,13 +7,13 @@ This application is intented to provide search functionality against the patent 
 **Steps**
 1.  Clone Repository
 
- '$ git clone https://github.com/megado123/searchpatent.git'
+ `$ git clone https://github.com/megado123/searchpatent.git`
 
  2.  Install requirements.
 
- '> C:\Python35\python.exe -m pip install wheel'
+ `> C:\Python35\python.exe -m pip install wheel`
 
-'> C:\Python35\python.exee -m pip install --upgrade -r requirements.txt'
+`> C:\Python35\python.exee -m pip install --upgrade -r requirements.txt`
 
 3.  Manually run the **setup.py** file to download the nltk stopwords 
 
