@@ -16,7 +16,9 @@ Here are the instructions to install this on your computer locally.  This code h
 
  `> C:\Python34\python.exe -m pip install wheel`
 
-`> C:\Python34\python.exee -m pip install --upgrade -r requirements.txt`
+Note the location of the requirements.txt file will be in your local repository - so that will need to be modifed in the example below
+
+`> C:\Python34\python.exe -m pip install --upgrade -r requirements.txt`
 
 3.  Manually run the **setup.py** file to download the nltk stopwords 
 
