@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% from "form_macros.html" import render_field %}
+
+{% block title %}
+Patent Search -- Results
+{%  endblock %}
+
+
+
+{% block content %}
+<section><h1>  </h1></section>
+<section>
+    <h1>Title Word cloud</h1>
+    <div id="chart"></div>
+</section>
+
+
+<section>
+    <h1>LDA Topic Models from Abstracts</h1>
+    <div id="topics"></div>
+    <h1>                                                                                                                                           </h1>
+    <table id="customers2">
+       {% for item in table.LDA_models %}
+
+        <TR>
+            <TD class="c2">{{item.words}}</TD>
+            <TD class="c2">{{item.score}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+</section>
+
+<section><h1></h1></section>
+<section>
+    <h1>HDP Topic Models from Abstracts</h1>
+    <div id="topics2"></div>
+    <h1>                                                                                                                                           </h1>
+    <table id="customers3">
+       {% for item in table.HDP_models %}
+
+        <TR>
+            <TD class="c2">{{item.words}}</TD>
+            <TD class="c2">{{item.score}}</TD>
+        </TR>
+        {% endfor %}
+    </table>
+</section>
+
+
+<section>
+    <h1>Top Ranking Related Companies & Patents Number</h1>
+    <div class="col-3 menu">
+        {% for item in table.orgs %}
+        <ul>
+            <li>{{item.value}}: {{item.count}}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+<section>
+   <h1>Search Results</h1>
+    {% for item in table.jsonData %}
+    <div class="col-4">
+        <h3>{{item.title}}</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-3 menu">
+            <table id="customers">
+                <tr><th>Score</th><th>Patent Number</th><th>Num Claims</th><th>Patent Date</th><th>Organization Name</th><th>Kind</th><th>Country</th><th>State</th><th>City</th></tr>
+                <TR>
+                    <TD>{{item['@search.score']}}</TD>
+                    <TD>{{item.id}}</TD>
+                    <TD>{{item.num_claims}}</TD>
+                    <TD>{{item.date}}</TD>
+                    <TD>{{item.organization}}</TD>
+                    <TD>{{item.kind}}</TD>
+                    <TD>{{item.country}}</TD>
+                    <TD>{{item.state}}</TD>
+                    <TD class="c5"><SPAN>{{item.city}}</SPAN></TD>
+                </TR>
+            </table>
+
+        </div>
+
+        <div class="col-4">
+            <p>{{item.abstract}}</p>
+        </div>
+        {% endfor %}
+        </div>
+
+</section>
+
+
+<script>
+
+
+
+
+
+var frequency_list = {{table.frequency_list | safe}};
+
+wordCloud(frequency_list, "#chart")
+
+function wordCloud(input, chartlocation) {
+
+    var frequency_list = input;
+
+    var color = d3.scale.linear()
+            .domain([0,1,2,3,4,5,6,10,15,20,100])
+
+            .range(["#f60505", "#f60505", "#f60505", "#f60505", "#f60505", "#f60505", "#f41515", "#f62222", "#f43636", "#f44242", "#f46161","#f69c9c"]);
+
+    d3.layout.cloud().size([800, 300])
+            .words(frequency_list)
+            .rotate(0)
+            .fontSize(function(d) { return d.size; })
+            .on("end", draw)
+            .start();
+
+    
+    function draw(words) {
+        d3.select(chartlocation).append("svg")
+                .attr("width", 850)
+                .attr("height", 350)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(320,200)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size + "px"; })
+                .style("fill", function(d, i) { return color(i); })
+                .attr("transform", function(d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+    }
+    }
+</script>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Patent -- Welcome
+{% endblock %}
+
+{% block content %}
+<article>
+    <header>
+        <h1>Welcome</h1>
+        <p>Welcome 3M Patent Search Website Below is a list of recent searches run</p>
+    </header>
+    <section>
+        <h2>Recently Searched</h2>
+        {% if new_searches %}
+            <ul>
+            {% for bm in new_searches %}
+                <a href='{{ url_for('user', username=bm.user.username) }}'>
+                <li>{{bm.searchtext}}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            No current searches yet.
+        {% endif %}
+    </section>
+</article>
+{% endblock %}
+

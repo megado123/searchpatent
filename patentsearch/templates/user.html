@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+3M Patent Analysis -- Past Searches for users {{ user.username }}
+{%  endblock %}
+
+{% block content %}
+    <article>
+        <header>
+             <h1>Searches for {{ user.username }}</h1>
+
+            <ul>
+                {% for bm in user.searches %}
+                    <li>
+                        {{bm.searchtext}} {{bm.country}}
+                        <span class="timestamp">Added at {{ bm.date }}</span>
+                    </li>
+                {% else %}
+                    <li>This user has performed any searches yet.</li>
+                {% endfor %}
+            </ul>
+        </header>
+
+    </article>
+
+{% endblock %}

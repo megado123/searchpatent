@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% from "form_macros.html" import render_field %}
+
+{% block title %}
+Patent -- Search
+{%  endblock %}
+
+{% block content %}
+    <section>
+        <h1 style="clear: both">Search here:</h1>
+        <h3>"quotes" in text result in exact match around search text, ex: "sewing machine" vs sewing machine</h3>
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            <table>
+                <tr>{{ render_field(form.searchtext, size=50) }}</tr>
+            </table>
+            <h3>Search Filters (exact match):</h3>
+            <table>
+                
+                <tr>
+                    {{ render_field(form.country) }}
+                </tr>
+                <tr>
+                    {{ render_field(form.patentnumber) }}
+                </tr>
+                <tr>
+                   {{ render_field(form.organization) }}
+                </tr>
+                <tr>
+                    {{ render_field(form.cpcs) }}
+                </tr>                
+                <tr>
+                    {{ render_field(form.sortby) }}
+                </tr>
+                <tr>
+                    {{ render_field(form.skip) }}
+                </tr>
+                <tr>
+                    {{ render_field(form.recordnumber) }}
+                </tr>
+
+                <tr class="submit">
+                    <td></td>
+                    <td><button type="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
