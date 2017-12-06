@@ -22,7 +22,7 @@ Note the location of the requirements.txt file will be in your local repository 
 
 3.  Manually run the **setup.py** file to download the nltk stopwords 
 
-4.  The SqlLite database is included, but it can be dropped and created throug the **runserver.py** file
+4.  The SqlLite database is included, but it can be dropped and created through the **runserver.py** file
 Running the **runserver.py** file with the argument: 'dropdb' to drop the database
 Running the **runserver.py** file with the argument: 'initdb' to create the database
 
