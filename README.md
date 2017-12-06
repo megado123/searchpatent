@@ -1,5 +1,5 @@
 # [Search Patent](http://searchpatent.azurewebsites.net)
-This application is intented to provide search functionality against the patent database hosted in Azure and made accessible through Azure Search with a Python Flask Front End with d3 extensions
+The [Search Patent](http://searchpatent.azurewebsites.net) application is intented to provide search functionality against the patent database hosted in Azure and made accessible through Azure Search with a Python Flask Front End with d3 extensions
 
 *Good news* This install is not required
 
