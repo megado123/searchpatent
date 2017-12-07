@@ -14,7 +14,5 @@ nltk.data.path.append(nltk_path)
 nltk.download('stopwords',download_dir = nltk_path)
 nltk.download('punkt',download_dir = nltk_path)
 
-print('prepare for downloader')
-nltk.download()
-
 print("downloaded to:" + nltk.data.path[0])
+
