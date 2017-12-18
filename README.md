@@ -60,4 +60,96 @@ for building out the front end using Python, Flask, and Jinja2 Templates
 * A view of the data was created and indexed using Azure Search
 * The Python web application is hosted in Azure highlights for getting that working in the Azure platform
 
+## Overview
+
+## Vision
+An organization that thrives on innovation, inventing a new and unique product that will be of value to the marketplace must have solid footing on existing patents.  A failure to defend itself against a patent infringement lawsuit could totally erase the profit recognized to compensate for research and development of a new product, all of which could extend over many years.
+Due to the sensitive nature of the information that researchers are exploring, using Internet search tools is frequently prohibited.  Internal proprietary tools are needed. 
+Our vision is to put together an application that provides relevant patent data for a researcher’s needs and interests.  The application will utilize text mining and analysis techniques to enhance the researcher’s experience.  The ultimate vision is that the researcher gains better information more quickly.
+
+## The application is hosted at [http://searchpatent.azurewebsites.net](http://searchpatent.azurewebsites.net).   
+Alternatively, the application can be downloaded at (https://github.com/megado123/searchpatent)[https://github.com/megado123/searchpatent] and installed locally.  [In either case, the application issues a call to the Azure Search API to get the results from the primary repository hosted on Azure.]
+
+If run remotely or locally - a SQL Lite Database is used to store recent searches and user information.  When a search is requested, the Python Flask Web application uses Azure Search which has indexed patent information using IDF-TF ranking against data pulled from [http://www.patentsview.org/download/](http://www.patentsview.org/download/) and placed into a SQL Server database housed in Azure.  
+
+The data returned from Azure Search is then used to populate a word cloud from the Titles, and gensim is used to generate LDA and HDP topic models.  In addition the top ranked companies based on patent numbers are displayed to provide a researcher immediate insight into compention/contributors to a relavent technical area.  Finally the research results are provided with a short table providing key infomration along with the abstract of a particular patent.
+
+## Application Design
+### The primary functions of the application are:
+* Present form to end user for search criteria
+* Provide criteria to the Azure Search API and receive results set
+* Identify word tokens by frequency using the patent titles.
+* Identify topics in the search results.  Latent Dirichlet Allocation (LDA) and the Hierarchical Dirichlet Allocation (HDP) methods are utilized to generate topic models and both models are displayed.
+* Display results including patent meta data and patent abstract for browsing.  
+
+### Secondary functions of the application include:
+* Creation of a user account with password
+* User identification and authentication 
+* Maintaining a history of patent search criteria, date, time by user
+
+
+### Utility functions provided include:
+* Initialize local SQLLite database
+* Drop and re-create local SQLLite database
+
+### Code Structure
+* The application was developed in Python with the Flask library to provide the user interactive features.  The search results are viewed in HTML frames which utilize d3 to present the data in graphical word cloud as well as HTML tables
+
+* During the application install, a subdirectory named “searchpatent” is created.  Several application setup files are copied to that directory.  A sub-directory named “patentsearch” is also created.  Patentsearch functions as a python library and includes important library modules forms.py, views.py and models.py. 
+The initiation program is app.py.
+
+Hierarchy of major application files:
+i)	Searchpatent (directory)
+(1)	Requirements.txt
+(2)	Setup.py
+(3)	Runserver.py
+(4)	App.py
+(5)	Patentsearch (directory)
+	(a)	Forms.py
+	(b)	Views.py
+	(c)	Models.py
+	(d)	Templates (directory)
+		(i)	Find.html
+		(ii)	Results2.html
+
+**Forms.py** contains definition of 3 forms for user interaction:
+
+
+| Function      | Overview      | 
+| ------------- |:-------------:|
+| Search        | Search 	A set of search criteria fields are available to the user.  
+A button labeled “submit” is available once user has supplied desired criteria.|
+| Login         | Login 	Fields for user ID and password are presented to user.
+A button labeled “login” is available. |  
+| Sign-Up       | Sign-Up	Fields for user name, email address, user ID, and 2 password are available to the user.
+A button labeled “create account” is available.     |  
+
+**Views.py** contains these functions:
+
+| Function      | Overview      | 
+| ------------- |:-------------:|
+|Find	        |Confirm user-entered search criteria and call makerequest().  makerequest functions makes API call to Azure Search|
+|Login	        |Confirm user credentials|
+|Logout         |	Remove current user settings in app memory|
+|Load_user	    |Get user search history|
+
+
+**Models.py** contains these functions:
+
+| Function      | Overview      | 
+| ------------- |:-------------:|
+Search	Retrieve history of searches
+SearchFields	Process search fields
+SearchData	Initialize memory variables to process search results returned.  Call bow().  Call GetTops().
+bow	Tokenize title data.  Remove stopwords, punctuation, and set lower case.  Calculate term frequency.
+GetTops	Tokenize abstract text.  Remove stopwords, punctuation, and set lower case.  Call LDA model function in gensim library.  Call HDP function in gensim library.  Set up results for tabular display.
+
+
+
+
+
+
+
+
+
 
