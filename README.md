@@ -165,16 +165,16 @@ HTML templates are utilized:
 |user           |Allows viewing past searches ex: http://searchpatent.azurewebsites.net/user/megado123 |
 |index          |Welcome page for application|
 
-** Primary Data Repository
+### Primary Data Repository
 We selected the PatentsView data source (http://patentsview.org) for patent data.  The site offers all data from 1976 to 2016 in different tables organized for a relational database.  The PatentsView website (http://www.patentsview.org/download) offers a total of 52 tables for download.  Many are reference tables to the multiple categorization codes available.  The core patent data in scope for our solution is covered in about 8 tables.  A SQL database hosted on Azure is loaded with more than 5mm patents and related data.
 
-** Secondary Database
+### Secondary Database
 An additional SQLLite database is part of the application which is used to store the user logon credential data.  It also stores the search criteria submitted to date for each user.
 
-** Search Capability
+### Search Capability
 Azure offers a search function and API.   The solution designer would configure as many indices on the data as necessary.  Our application requires only one index which is a search on patent abstract data.  The search API is configured to receive an index name and search criteria fields including a sort field.  The API is called by an HTTP GET or POST.  The results set is determined by the index configuration.  Our index returns several fields including the patent title, company or organization that holds the patent, date patent granted, and location including country, state, and city.
 
-**Team Members
+### Team Members
 Team members are Megan Masanz (mjneuman) and Cynthia Johnson (cjj4).
 Megan contributed primary application architecture design and development using Python, Flask, HTML with D3.  Additionally, Azure search index configuration against primary data repository of patent data.  
 Cynthia contributed research for Microsoft Azure Search, nltk and gensim libraries, and LDA and HDP topic models.  Also contributed python development for preparation and calculation of models.
