@@ -41,23 +41,25 @@ import gensim
 from gensim import corpora, models, similarities
 import collections
 
-
+#encoder class so text can easily be consumed for display of d3 word cloud
 class MyEncoder(JSONEncoder):
     def default(self, o):
         return o.__dict__
 
+#class to hold text and size for word cloud
 class textSize():
     def __init__(self, text, size):
         self.text = text
         self.size = size
 
-
+#class to store models and scores
+#could have done additional word cloud, but scientist said its current visual representation was more helpful
 class resultmodels():
     def __init__(self):
         self.words = []
         self.score = []
 
-
+#Search results coming from Azure Search
 class SearchData():
     def __init__(self, textdata, jsonData, orgs):
         self.orgs = orgs
@@ -89,32 +91,41 @@ class SearchData():
 
     #function to create bag of words on text
     def bow(self):
-    
+		#regex to clean up words
         self.text = regex.sub(r'[^\w]', ' ', self.text)
+		#moving data to lower case
         self.text = self.text.lower()
+		#splitting up
         tokens = [t for t in self.text.split()]
+		#preparing to have a set of clean tokens
         clean_tokens = tokens[:]
     
+		#load stop words and based on our searches, unique stop words not included in library
         sw = stopwords.words('english')
         unique_stopwords = ['wherein', 'base', 'said', 'therewith', 'one', 'two', 'first', 'second', 'third', 'includes']
 
-   
+		#if a word is considered a stop word, it is removed from the list of words
         for token in tokens:
             if token in (stopwords.words('english') or unique_stopwords):
                 clean_tokens.remove(token)
 
+		#frequency is determined for clean set of words
         freq = nltk.FreqDist(clean_tokens)
+		#not used, but could have been determined to be helpful given the volume of text data
         blah = freq.most_common()
 
         total = 0
         max = 0
 
+		#total size of words determined for word cloud
         for key, val in freq.items():
             total = total + val
             if (val > max):
                 max = val
 
-           
+        #word size is determined, it is not a true picture statistically
+		#of what word counts are assoicated with a particular word - that made some words not readable
+		#this implementation allows for users to get a good sense of the words found within the titles
         maxsize = 100
         minsize = 20
         for key, val in freq.items():
@@ -179,6 +190,7 @@ class SearchData():
         tfidf = models.TfidfModel(corpus)
         Rpmodel = models.RpModel(corpus, num_topics=500)
 
+		#LDA_models created
         Ldamodel = models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=1, update_every=1, chunksize=100,
                                     passes=10, gamma_threshold=0.001)
         tab = Ldamodel.show_topics(num_words=5, formatted=False)
@@ -197,7 +209,7 @@ class SearchData():
                         x.score.append(value)
                 self.LDA_models.append(x)
 
-
+		#Hdp model created
         Hdpmodel = models.HdpModel(corpus, id2word=dictionary)
         tab = Hdpmodel.show_topics(num_topics=1, num_words=5, formatted=False)
 
@@ -214,7 +226,7 @@ class SearchData():
                         x.score.append(value)
                 self.HDP_models.append(x)
 
-
+#class to allow passing search criteria easily
 class SearchFields():
     def __init__(self, searchtext, country, organization, kind, patentnumber, sortby, skip, recordnumber):
         self.searchtext = searchtext
@@ -226,7 +238,7 @@ class SearchFields():
         self.skip = skip
         self.recordnumber = recordnumber
 
-
+#class using ORM model enabled by SQL Alchemy
 class Search(db.Model):
     extend_existing = True
     id = db.Column(db.Integer, primary_key=True)
