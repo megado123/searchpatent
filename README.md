@@ -116,18 +116,15 @@ i)	Searchpatent (directory)
 
 
 | Function      | Overview      | 
-| ------------- |:-------------:|
-| Search        | Search 	A set of search criteria fields are available to the user.  
-A button labeled “submit” is available once user has supplied desired criteria.|
-| Login         | Login 	Fields for user ID and password are presented to user.
-A button labeled “login” is available. |  
-| Sign-Up       | Sign-Up	Fields for user name, email address, user ID, and 2 password are available to the user.
-A button labeled “create account” is available.     |  
+| ------------- |:-------------|
+| Search        | Search 	A set of search criteria fields are available to the user.  A button labeled “submit” is available once user has supplied desired criteria.|
+| Login         | Login 	Fields for user ID and password are presented to user.  A button labeled “login” is available. |  
+| Sign-Up       | Sign-Up	Fields for user name, email address, user ID, and 2 password are available to the user.  A button labeled “create account” is available.     |  
 
 **Views.py** contains these functions:
 
 | Function      | Overview      | 
-| ------------- |:-------------:|
+| ------------- |:-------------|
 |Find	        |Confirm user-entered search criteria and call makerequest().  makerequest functions makes API call to Azure Search|
 |Login	        |Confirm user credentials|
 |Logout         |	Remove current user settings in app memory|
