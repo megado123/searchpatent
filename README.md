@@ -122,7 +122,7 @@ i)	Searchpatent (directory)
 
 
 | Function      | Overview      | 
-| ------------- |:-------------|
+| ------------- |:--------------|
 | Search        | Search 	A set of search criteria fields are available to the user.  A button labeled “submit” is available once user has supplied desired criteria.|
 | Login         | Login 	Fields for user ID and password are presented to user.  A button labeled “login” is available. |  
 | Sign-Up       | Sign-Up	Fields for user name, email address, user ID, and 2 password are available to the user.  A button labeled “create account” is available.     | 
@@ -132,7 +132,7 @@ The classes contain information pertaining to how the input is displayed and val
 **Views.py** contains these functions:
 
 | Function      | Overview      | 
-| ------------- |:-------------|
+| ------------- |:--------------|
 |Find	        |Confirm user-entered search criteria and call makerequest().  makerequest functions makes API call to Azure Search|
 |Login	        |Confirm user credentials|
 |Logout         |	Remove current user settings in app memory|
@@ -142,7 +142,7 @@ The classes contain information pertaining to how the input is displayed and val
 **Models.py** contains these functions:
 
 | Function      | Overview      | 
-| ------------- |:-------------:|
+| ------------- |:--------------|
 |Search	        |Retrieve history of searches|
 |SearchFields	|Process search fields|
 |SearchData	    |Initialize memory variables to process search results returned.  Call bow().  Call GetTops().|
@@ -153,7 +153,7 @@ The classes contain information pertaining to how the input is displayed and val
 HTML templates are utilized:
 
 | Function      | Overview      | 
-| ------------- |:-------------:|
+| ------------- |:--------------|
 |Find.html	    |Form for user to enter search criteria and desired sort|
 |Results2.html	|Form to present results to user.  Includes word cloud of frequent terms, LDA topic model, HDP topic model, and patent meta data and abstract data.|
 |404.html       |When user puts in a page not found,   ex: http://searchpatent.azurewebsites.net/dog |
