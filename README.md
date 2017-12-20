@@ -116,10 +116,9 @@ Hierarchy of major application files:
 
 **AnotherTest.py** Simple test added to ensure NLTK library functionality from Kudu command console within the Azure Environment.
 
+**home.py** was initial application start, and remained with simple functions to retrieve information from SQLLite database
+
 **Forms.py** contains definition of 3 class forms for user interaction: 
-
-**home.py** was initial application start, and remained with simle functions to retrieve information from SQLLite database
-
 
 | Function      | Overview      | 
 | ------------- |:--------------|
@@ -137,7 +136,6 @@ The classes contain information pertaining to how the input is displayed and val
 |Login	        |Confirm user credentials|
 |Logout         |	Remove current user settings in app memory|
 |Load_user	    |Get user search history|
-
 
 **Models.py** contains these functions:
 
