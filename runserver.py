@@ -8,7 +8,7 @@ manager = Manager(app)
 @manager.command
 
 
-
+#function to intitialize SQL Lite Database.  Creates 2 users
 def initdb():
     db.create_all()
     db.session.add(User(username="megan", email="megan@example.com", password="test"))
@@ -18,6 +18,7 @@ def initdb():
     db.session.commit()
     print ('Initialized the database')
 
+#Allows for dropping the SQL Lite Database
 @manager.command
 def dropdb():
     if prompt_bool(

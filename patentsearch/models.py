@@ -19,7 +19,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 nltk_path = os.path.join(basedir, 'patentsearch', 'App_Data', 'nltk_data')
 nltk.data.path.append(nltk_path)
-#add path to support Azure
+#add path to support Azure - this is where the stop words is loaded within Azure environment
 nltk.data.path.append('D:\\home\\python361x64\\nltk_data')
 nltk.data.path.append('D://home//python361x64//nltk_data')
 
