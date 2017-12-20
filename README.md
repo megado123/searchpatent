@@ -2,7 +2,7 @@
 The [Search Patent](http://searchpatent.azurewebsites.net) application is intented to provide search functionality against the patent database hosted in Azure and made accessible through Azure Search with a Python Flask Front End with d3 extensions
 
 The first time the application is pulled up it will take some time to load your cache - note the 1st time will take up to 1 minute (should be ~ 15 seconds).
-However loading the website after the initil load will be much faster.
+However loading the website after the initial load will be much faster.
 
 Presentation of application is available at: https://youtu.be/E3A5gvE8YCg
 
