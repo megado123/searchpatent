@@ -18,11 +18,11 @@ Here are the instructions to install this on your computer locally.  This code h
 
  2.  Install requirements.
 
- `> C:\Python34\python.exe -m pip install wheel`
+ `> python -m pip install wheel`
 
 Note the location of the requirements.txt file will be in your local repository - so that will need to be modifed in the example below
 
-`> C:\Python34\python.exe -m pip install --upgrade -r requirements.txt`
+`> python -m pip install --upgrade -r requirements.txt`
 
 3.  Manually run the **setup.py** file to download the nltk stopwords 
 
@@ -44,9 +44,7 @@ Additional files for deployment into Azure have also been included as part of th
 3.  ptvs_virtualenv_proxy.py
 4. .skipPythonDeployment (skip the standard deployment)
 5. web.config (empty) file in the static folder
-6. patentsearch.sln (for viewing with Visual Studio)
-7. patentsearch.pyproj.user (for viewing with Visual Studio)
-8. patentsearch.pyproj (for viewing with Visual Studio)
+
 
 
 ## Acknowledgements
