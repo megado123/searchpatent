@@ -12,7 +12,7 @@ Detailed presentation including application install to run locally can be found 
 This install is not required
 
 *More details than required* 
-Here are the instructions to install this on your computer locally.  This code has been run in python 3.6.1 environments in Azure and 3.6.2 running locally on pc
+Here are the instructions to install this on your computer locally.  This code has been run in python 3.6.1 environment in Azure and 3.6.2 running locally on pc
 
 **Steps**
 
@@ -41,8 +41,8 @@ python.exe should provide indication that application is running on http://local
 
 ### Additional files
 
-The project can be fun in whatever IDE is desired, but the Visual Studio Files have been included in the repository
-Additional files for deployment into Azure have also been included as part of this repository
+Additional files for deployment into Azure have also been included as part of this repository, our mission was to use one repository for deployment and source control.  The files needed for a successful deployment into Azure have been include below.
+
 1.  web.config
 2.  downloader.py (can be run in Azure environment to bring up the nltk ui)
 3.  ptvs_virtualenv_proxy.py
@@ -61,8 +61,6 @@ for building out the front end using Python, Flask, and Jinja2 Templates
 * The patent database is hosted in an Azure SQL Server database 
 * A view of the data was created and indexed using Azure Search
 * The Python web application is hosted in Azure highlights for getting that working in the Azure platform
-
-## Overview
 
 ## Vision
 An organization that thrives on innovation, inventing a new and unique product that will be of value to the marketplace must have solid footing on existing patents.  A failure to defend itself against a patent infringement lawsuit could totally erase the profit recognized to compensate for research and development of a new product, all of which could extend over many years.
@@ -156,16 +154,16 @@ HTML templates are utilized:
 
 | Function      | Overview      | 
 | ------------- |:--------------|
-|Find.html	    |Form for user to enter search criteria and desired sort|
+|Find.html	    |Form for user to enter search criteria and desired sort.|
 |Results2.html	|Form to present results to user.  Includes word cloud of frequent terms, LDA topic model, HDP topic model, and patent meta data and abstract data.|
 |404.html       |When user puts in a page not found,   ex: http://searchpatent.azurewebsites.net/dog |
 |505.html       |When exception occurs provides ability to send email - if they think this occured on error.|
-|Base.html		|Base Template in which other templates inherit from|
-|form_macro.html|Template providing ability to display field errors|
-|login          |login template|
-|signup         |Allows for signing up for user (recall validation is provided in forms.py|
-|user           |Allows viewing past searches ex: http://searchpatent.azurewebsites.net/user/megado123 |
-|index          |Welcome page for application|
+|Base.html		|Base Template in which other templates inherit from.|
+|form_macro.html|Template providing ability to display field errors.|
+|login.html     |login template.|
+|signup.html    |Allows for signing up for user (recall validation is provided in forms.py|
+|user.html      |Allows viewing past searches ex: http://searchpatent.azurewebsites.net/user/megado123 |
+|index.html     |Welcome page for application displaying recently performed searches.|
 
 ### Primary Data Repository
 We selected the PatentsView data source (http://patentsview.org) for patent data.  The site offers all data from 1976 to 2016 in different tables organized for a relational database.  The PatentsView website (http://www.patentsview.org/download) offers a total of 52 tables for download.  Many are reference tables to the multiple categorization codes available.  The core patent data in scope for our solution is covered in about 8 tables.  A SQL database hosted on Azure is loaded with more than 5mm patents and related data.
