@@ -68,7 +68,7 @@ Due to the sensitive nature of the information that researchers are exploring, u
 Our vision is to put together an application that provides relevant patent data for a researcher’s needs and interests.  The application will utilize text mining and analysis techniques to enhance the researcher’s experience.  The ultimate vision is that the researcher gains better information more quickly.
 
 ## The application is hosted at [http://searchpatent.azurewebsites.net](http://searchpatent.azurewebsites.net).   
-Alternatively, the application can be downloaded at (https://github.com/megado123/searchpatent)[https://github.com/megado123/searchpatent] and installed locally.  [In either case, the application issues a call to the Azure Search API to get the results from the primary repository hosted on Azure.]
+Alternatively, the application can be downloaded from [github](https://github.com/megado123/searchpatent) and installed locally.  [In either case, the application issues a call to the Azure Search API to get the results from the primary repository hosted on Azure.]
 
 If run remotely or locally - a SQL Lite Database is used to store recent searches and user information.  When a search is requested, the Python Flask Web application uses Azure Search which has indexed patent information using IDF-TF ranking against data pulled from [http://www.patentsview.org/download/](http://www.patentsview.org/download/) and placed into a SQL Server database housed in Azure.  
 
@@ -99,18 +99,18 @@ The data returned from Azure Search is then used to populate a word cloud from t
 The initiation program is app.py.
 
 Hierarchy of major application files:
-i)	Searchpatent (directory)
-(1)	Requirements.txt
-(2)	Setup.py
-(3)	Runserver.py
-(4)	App.py
-(5)	Patentsearch (directory)
-	(a)	Forms.py
-	(b)	Views.py
-	(c)	Models.py
-	(d)	Templates (directory)
-		(i)	Find.html
-		(ii)	Results2.html
+* Searchpatent (directory)
+  * Requirements.txt
+  * Setup.py
+  * Runserver.py
+  * App.py
+  * Patentsearch (directory)
+	* Forms.py
+	* Views.py
+	* Models.py
+	* Templates (directory)
+		* Find.html
+		* Results2.html
 		
 **__init__.py** holds configuation for flask login manager and SQLLite database
 
