@@ -1,14 +1,17 @@
 # [Search Patent](http://searchpatent.azurewebsites.net)
 The [Search Patent](http://searchpatent.azurewebsites.net) application is intented to provide search functionality against the patent database hosted in Azure and made accessible through Azure Search with a Python Flask Front End with d3 extensions
 
-The first time the application is pulled up it will take some time to load your cache - note the 1st time will take up to 1 minute.
+The first time the application is pulled up it will take some time to load your cache - note the 1st time will take up to 1 minute (should be ~ 15 seconds).
 However loading the website after the initil load will be much faster.
+
+Presentation of application is available at: https://youtu.be/E3A5gvE8YCg
+Detailed presentation including application install to run locally can be found at: https://youtu.be/6pafuFNN4Dg
 
 **Good news** 
 This install is not required
 
 *More details than required* 
-Here are the instructions to install this on your computer locally.  This code has been run in both python 3.4.4 and python 3.6.1 environments
+Here are the instructions to install this on your computer locally.  This code has been run in python 3.6.1 environments in Azure and 3.6.2 running locally on pc
 
 **Steps**
 
