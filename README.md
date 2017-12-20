@@ -5,6 +5,7 @@ The first time the application is pulled up it will take some time to load your 
 However loading the website after the initil load will be much faster.
 
 Presentation of application is available at: https://youtu.be/E3A5gvE8YCg
+
 Detailed presentation including application install to run locally can be found at: https://youtu.be/6pafuFNN4Dg
 
 **Good news** 
