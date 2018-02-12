@@ -173,15 +173,6 @@ An additional SQLLite database is part of the application which is used to store
 Azure offers a search function and API.   The solution designer would configure as many indices on the data as necessary.  Our application requires only one index which is a search on patent abstract data.  The search API is configured to receive an index name and search criteria fields including a sort field.  The API is called by an HTTP GET.  The results set is determined by the TF-IDF score or by the date.  The result size returned can range from 10 to 30 results.  Our index returns several fields including the patent title, company or organization that holds the patent, date patent granted, and location including country, state, and city.
 
 
-### Team Members
-Team members are Megan Masanz (mjneuman) and Cynthia Johnson (cjj4).
-Megan contributed primary application architecture design and development using Python, Flask, HTML with D3.  Additionally, Azure search index configuration against primary data repository of patent data.  
-Cynthia contributed research for Microsoft Azure Search, nltk and gensim libraries, and LDA and HDP topic models.  Also contributed python development for preparation and calculation of models.
-Both contributed toward building repository of patent data.
-
-
-
-
 
 
 
