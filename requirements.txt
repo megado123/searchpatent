@@ -1,5 +1,5 @@
 --find-links wheelhouse
-numpy==1.13.3
+numpy==1.22.0
 pandas==0.19.2
 Flask==0.12.2
 Flask-Login==0.4.0
